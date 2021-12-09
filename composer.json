@@ -1,0 +1,38 @@
+{
+    "name": "slub/slub-find-flexibleviews",
+    "description": "Find Flexible Views for SLUB Catalog",
+    "type": "typo3-cms-extension",
+    "homepage": "https://github.com/slub/slub_find_flexibleviews",
+    "keywords" : ["TYPO3 CMS"],
+    "license": "GPL-3.0-or-later",
+    "authors" : [
+      {
+        "name" : "Alexander Bigga",
+        "email" : "alexander.bigga@slub-dresden.de",
+        "role" : "Developer"
+      },
+      {
+        "name" : "Carsten Radeck",
+        "email" : "carsten.radeck@slub-dresden.de",
+        "role" : "Developer"
+      },
+      {
+            "name" : "Christof Rodejohann",
+            "email" : "christof.rodejohann@slub-dresden.de",
+            "role" : "Developer"
+      }
+    ],
+    "require": {
+        "typo3/cms-core": "~9.5.31"
+    },
+    "autoload": {
+        "psr-4": {
+            "Slub\\SlubFindFlexibleviews\\": "Classes"
+        }
+    },
+    "extra": {
+      "typo3/cms": {
+         "extension-key": "slub_find_flexibleviews"
+      }
+    }
+}
