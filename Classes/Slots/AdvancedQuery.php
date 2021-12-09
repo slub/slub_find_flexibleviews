@@ -13,6 +13,8 @@ namespace Slub\SlubFindFlexibleviews\Slots;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use Slub\SlubFindExtend\Backend\Solr\SearchHandler;
 use Slub\SlubFindFlexibleviews\Domain\Repository\FlexibleviewsRepository;
@@ -69,15 +71,20 @@ class AdvancedQuery
      */
     public function build(&$query, $arguments)
     {
-        $currentView = $this->flexibleviewsRepository->findByUid((int) $arguments['flexibleviews']);
 
-        if ($currentView === null) {
-            return;
+        if (MathUtility::canBeInterpretedAsInteger($arguments['flexibleviews'])) {
+            $flexibleViewUid = MathUtility::forceIntegerInRange((int) $arguments['flexibleviews'], 1);
+
+            $currentView = $this->flexibleviewsRepository->findByUid($flexibleViewUid);
+
+            if ($currentView === null) {
+                return;
+            }
+
+            $query->createFilterQuery('additionalFilter-flexibleview-' . $currentView->getUid())
+                ->setQuery($currentView->getQuery());
+
         }
-
-        $query->createFilterQuery('additionalFilter-flexibleview-' . $currentView->getUid())
-		      ->setQuery($currentView->getQuery());
-
     }
 
 }
