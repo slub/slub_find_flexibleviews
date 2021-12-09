@@ -72,7 +72,7 @@ class AdvancedQuery
     public function build(&$query, $arguments)
     {
 
-        if (MathUtility::canBeInterpretedAsInteger($arguments['flexibleviews'])) {
+        if (!empty($arguments['flexibleviews']) && MathUtility::canBeInterpretedAsInteger($arguments['flexibleviews'])) {
             $flexibleViewUid = MathUtility::forceIntegerInRange((int) $arguments['flexibleviews'], 1);
 
             $currentView = $this->flexibleviewsRepository->findByUid($flexibleViewUid);
