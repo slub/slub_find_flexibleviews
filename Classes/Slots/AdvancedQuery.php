@@ -28,12 +28,6 @@ class AdvancedQuery
 {
 
     /**
-     * @var \Slub\SlubFindExtend\Services\StopWordService
-     * @inject
-     */
-    protected $stopWordService;
-
-    /**
      * Contains the settings of the current extension
      *
      * @var array

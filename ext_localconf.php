@@ -11,7 +11,7 @@ $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TY
 $signalSlotDispatcher->connect(
     'Subugoe\Find\Controller\SearchController',
     'indexActionBeforeSelect',
-    'Slub\SlubFindExtend\Slots\AdvancedQuery',
+    'Slub\SlubFindFlexibleviews\Slots\AdvancedQuery',
     'build',
     false
 );
