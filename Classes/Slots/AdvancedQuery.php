@@ -15,7 +15,7 @@ namespace Slub\SlubFindFlexibleviews\Slots;
  */
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use Slub\SlubFindExtend\Backend\Solr\SearchHandler;
-use Slub\SlubFindFlexibleviews\Domain\Repository;
+use Slub\SlubFindFlexibleviews\Domain\Repository\FlexibleviewsRepository;
 use Solarium\QueryType\Select\Query\Query;
 
 /**
@@ -26,6 +26,10 @@ use Solarium\QueryType\Select\Query\Query;
  */
 class AdvancedQuery
 {
+    /**
+     * @var FlexibleviewsRepository
+     */
+    protected $flexibleviewsRepository;
 
     /**
      * Contains the settings of the current extension
@@ -50,14 +54,13 @@ class AdvancedQuery
     }
 
     /**
-     * Initialize the extbase repository based on the given storagePid.
-     *
-     * @return bool
+     * @param FlexibleviewsRepository $flexibleviewsRepository
      */
-    protected function initializeRepositories()
+    public function injectFlexibleviewsRepository(FlexibleviewsRepository $flexibleviewsRepository)
     {
-        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        $this->flexibleviewsRepository = $flexibleviewsRepository;
     }
+
     /**
      * Slot to build the advanced query
      *
@@ -66,21 +69,14 @@ class AdvancedQuery
      */
     public function build(&$query, $arguments)
     {
-        $queryParameter = trim(is_array($arguments['q']['default']) ? $arguments['q']['default'][0] : $arguments['q']['default']);
-        $originalQueryParameter = $queryParameter;
+        $currentView = $this->flexibleviewsRepository->findByUid((int) $arguments['flexibleviews']);
 
-        $settings = $this->settings['components'];
-
-        if ($settings) {
-
-            if (strlen($queryParameter) > 0) {
-
-                $query->setQuery($querystring);
-
-            } else {
-
-            }
+        if ($currentView === null) {
+            return;
         }
+
+        $query->createFilterQuery('additionalFilter-flexibleview-' . $currentView->getUid())
+		      ->setQuery($currentView->getQuery());
 
     }
 
