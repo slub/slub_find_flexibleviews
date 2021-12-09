@@ -15,8 +15,8 @@ namespace Slub\SlubFindFlexibleviews\Slots;
  */
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use Slub\SlubFindExtend\Backend\Solr\SearchHandler;
+use Slub\SlubFindFlexibleviews\Domain\Repository\FlexibleviewsRepository;
 use Solarium\QueryType\Select\Query\Query;
-
 
 /**
  * Slot implementation before the
@@ -26,6 +26,10 @@ use Solarium\QueryType\Select\Query\Query;
  */
 class AdvancedQuery
 {
+    /**
+     * @var FlexibleviewsRepository
+     */
+    protected $flexibleviewsRepository;
 
     /**
      * Contains the settings of the current extension
@@ -50,6 +54,14 @@ class AdvancedQuery
     }
 
     /**
+     * @param FlexibleviewsRepository $flexibleviewsRepository
+     */
+    public function injectFlexibleviewsRepository(FlexibleviewsRepository $flexibleviewsRepository)
+    {
+        $this->flexibleviewsRepository = $flexibleviewsRepository;
+    }
+
+    /**
      * Slot to build the advanced query
      *
      * @param Query &$query
@@ -57,22 +69,14 @@ class AdvancedQuery
      */
     public function build(&$query, $arguments)
     {
+        $currentView = $this->flexibleviewsRepository->findByUid((int) $arguments['flexibleviews']);
 
-        $queryParameter = trim(is_array($arguments['q']['default']) ? $arguments['q']['default'][0] : $arguments['q']['default']);
-        $originalQueryParameter = $queryParameter;
-
-        $settings = $this->settings['components'];
-
-        if ($settings) {
-
-            if (strlen($queryParameter) > 0) {
-
-                $query->setQuery($querystring);
-
-            } else {
-
-            }
+        if ($currentView === null) {
+            return;
         }
+
+        $query->createFilterQuery('additionalFilter-flexibleview-' . $currentView->getUid())
+		      ->setQuery($currentView->getQuery());
 
     }
 
