@@ -1,7 +1,6 @@
 <?php
 namespace Slub\SlubFindFlexibleviews\Controller;
 
-
 /***
  *
  * This file is part of the "SLUB" Extension for TYPO3 CMS.
@@ -9,10 +8,11 @@ namespace Slub\SlubFindFlexibleviews\Controller;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2021 
+ *  (c) 2021
  *
  ***/
-/**
+
+ /**
  * FlexibleviewsController
  */
 class FlexibleviewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
@@ -20,7 +20,7 @@ class FlexibleviewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 
     /**
      * flexibleviewsRepository
-     * 
+     *
      * @var \Slub\SlubFindFlexibleviews\Domain\Repository\FlexibleviewsRepository
      */
     protected $flexibleviewsRepository = null;
@@ -35,7 +35,7 @@ class FlexibleviewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 
     /**
      * action list
-     * 
+     *
      * @return void
      */
     public function listAction()
@@ -46,7 +46,7 @@ class FlexibleviewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 
     /**
      * action show
-     * 
+     *
      * @param \Slub\SlubFindFlexibleviews\Domain\Model\Flexibleviews $flexibleviews
      * @return void
      */

@@ -15,8 +15,8 @@ namespace Slub\SlubFindFlexibleviews\Slots;
  */
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use Slub\SlubFindExtend\Backend\Solr\SearchHandler;
+use Slub\SlubFindFlexibleviews\Domain\Repository;
 use Solarium\QueryType\Select\Query\Query;
-
 
 /**
  * Slot implementation before the
@@ -50,6 +50,15 @@ class AdvancedQuery
     }
 
     /**
+     * Initialize the extbase repository based on the given storagePid.
+     *
+     * @return bool
+     */
+    protected function initializeRepositories()
+    {
+        $this->objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+    }
+    /**
      * Slot to build the advanced query
      *
      * @param Query &$query
@@ -57,7 +66,6 @@ class AdvancedQuery
      */
     public function build(&$query, $arguments)
     {
-
         $queryParameter = trim(is_array($arguments['q']['default']) ? $arguments['q']['default'][0] : $arguments['q']['default']);
         $originalQueryParameter = $queryParameter;
 
