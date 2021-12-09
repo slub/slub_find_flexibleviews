@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:slub_find_flexibleviews/Resources/Private/Language/locallang" date="2021-12-09T12:44:39Z" product-name="slub_find_flexibleviews">
+		<header/>
+		<body>
+			<trans-unit id="tx_slubfindflexibleviews_domain_model_flexibleviews" resname="tx_slubfindflexibleviews_domain_model_flexibleviews">
+				<source>Flexibleviews</source>
+			</trans-unit>
+			<trans-unit id="tx_slubfindflexibleviews_domain_model_flexibleviews.title" resname="tx_slubfindflexibleviews_domain_model_flexibleviews.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_slubfindflexibleviews_domain_model_flexibleviews.query" resname="tx_slubfindflexibleviews_domain_model_flexibleviews.query">
+				<source>Query</source>
+			</trans-unit>
+			<trans-unit id="tx_slubfindflexibleviews_domain_model_flexibleviews.description" resname="tx_slubfindflexibleviews_domain_model_flexibleviews.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_slubfindflexibleviews_domain_model_flexibleviews.image" resname="tx_slubfindflexibleviews_domain_model_flexibleviews.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_slubfindflexibleviews_domain_model_flexibleviews.link" resname="tx_slubfindflexibleviews_domain_model_flexibleviews.link">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="tx_slubfindflexibleviews_domain_model_flexibleviews.slug" resname="tx_slubfindflexibleviews_domain_model_flexibleviews.slug">
+				<source>Slug</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

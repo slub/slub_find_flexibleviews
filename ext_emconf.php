@@ -11,13 +11,13 @@
  ***************************************************************/
 
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'SLUB',
+    'title' => 'Find Flexible Views',
     'description' => '',
     'category' => 'plugin',
     'author' => '',
     'author_email' => '',
     'state' => 'alpha',
-    'uploadfolder' => 0,
+    'uploadfolder' => 1,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
     'version' => '1.0.0',

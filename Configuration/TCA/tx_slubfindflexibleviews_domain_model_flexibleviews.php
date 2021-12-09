@@ -17,14 +17,14 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,query,description,link',
+        'searchFields' => 'title,query,description,link,slug',
         'iconfile' => 'EXT:slub_find_flexibleviews/Resources/Public/Icons/tx_slubfindflexibleviews_domain_model_flexibleviews.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, query, description, image, link',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, query, description, image, link, slug',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, query, description, image, link, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, query, description, image, link, slug, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -199,6 +199,15 @@ return [
         'link' => [
             'exclude' => true,
             'label' => 'LLL:EXT:slub_find_flexibleviews/Resources/Private/Language/locallang_db.xlf:tx_slubfindflexibleviews_domain_model_flexibleviews.link',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
+        'slug' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:slub_find_flexibleviews/Resources/Private/Language/locallang_db.xlf:tx_slubfindflexibleviews_domain_model_flexibleviews.slug',
             'config' => [
                 'type' => 'input',
                 'size' => 30,

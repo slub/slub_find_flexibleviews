@@ -36,7 +36,7 @@
                         {
                             "allowedFileTypes": "",
                             "maxItems": "1",
-                            "propertyDescription": "",
+                            "propertyDescription": "Titel",
                             "propertyIsExcludeField": true,
                             "propertyIsL10nModeExclude": false,
                             "propertyIsRequired": false,
@@ -87,6 +87,17 @@
                             "propertyName": "link",
                             "propertyType": "String",
                             "uid": "512710338345"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "slug",
+                            "propertyType": "String",
+                            "uid": "337886765737"
                         }
                     ]
                 },
@@ -112,7 +123,7 @@
             "version": "1.0.0"
         },
         "extensionKey": "slub_find_flexibleviews",
-        "name": "SLUB ",
+        "name": "Find Flexible Views",
         "originalExtensionKey": "slub_find_flexibleviews",
         "originalVendorName": "Slub",
         "persons": [],
@@ -120,9 +131,9 @@
         "vendorName": "Slub"
     },
     "wires": [],
-    "storagePath": "\/var\/www\/extensions\/slub_find_flexibleviews\/",
+    "storagePath": "\/var\/www\/extensions\/",
     "log": {
-        "last_modified": "2021-12-09 10:33",
+        "last_modified": "2021-12-09 12:44",
         "extension_builder_version": "9.10.5",
         "be_user": " (1)"
     }

@@ -19,7 +19,7 @@ class Flexibleviews extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
     /**
-     * title
+     * Titel
      * 
      * @var string
      */
@@ -53,6 +53,13 @@ class Flexibleviews extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $link = '';
+
+    /**
+     * slug
+     * 
+     * @var string
+     */
+    protected $slug = '';
 
     /**
      * Returns the title
@@ -157,5 +164,26 @@ class Flexibleviews extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setLink($link)
     {
         $this->link = $link;
+    }
+
+    /**
+     * Returns the slug
+     * 
+     * @return string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Sets the slug
+     * 
+     * @param string $slug
+     * @return void
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 }
