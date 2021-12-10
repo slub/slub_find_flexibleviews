@@ -29,4 +29,16 @@ class AdvancedQueryTest extends \TYPO3\TestingFramework\Core\Unit\UnitTestCase {
         $this->assertEquals($preparedQuery->getQuery(), $preparedQueryString);
     }
 
+    /**
+     * @test
+     */
+    public function emptyArgumentsDontChangeQuery() {
+        $preparedQuery = new Query();
+        $preparedQueryString = $preparedQuery->getQuery();
+
+        $this->advancedQuery->build($preparedQuery, []);
+
+        $this->assertEquals($preparedQuery->getQuery(), $preparedQueryString);
+    }
+
 }
