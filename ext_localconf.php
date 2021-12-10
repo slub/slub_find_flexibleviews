@@ -7,10 +7,19 @@ $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TY
 // register routing configs
 // $GLOBALS['TYPO3_CONF_VARS']['SYS']['routing']['aspects']['SlubCatalogId'] = \Slub\SlubFindExtend\Routing\Aspect\SlubCatalogId::class;
 
-// Hook into \Subugoe\Find\Controller
+// Hook into \Subugoe\Find\Controller\SearchController
 $signalSlotDispatcher->connect(
     'Subugoe\Find\Controller\SearchController',
     'indexActionBeforeSelect',
+    'Slub\SlubFindFlexibleviews\Slots\AdvancedQuery',
+    'build',
+    false
+);
+
+// Hook into \Subugoe\Find\Controller\SearchController
+$signalSlotDispatcher->connect(
+    'Subugoe\Find\Controller\SearchController',
+    'detailActionBeforePagingSelect',
     'Slub\SlubFindFlexibleviews\Slots\AdvancedQuery',
     'build',
     false
