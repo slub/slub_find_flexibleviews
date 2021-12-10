@@ -43,7 +43,7 @@ class FlexibleviewsControllerTest extends \TYPO3\TestingFramework\Core\Unit\Unit
         $this->inject($this->subject, 'flexibleviewsRepository', $flexibleviewsRepository);
 
         $view = $this->getMockBuilder(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface::class)->getMock();
-        $view->expects(self::once())->method('assign')->with('flexibleviewss', $allFlexibleviewss);
+        $view->expects(self::once())->method('assign')->with('flexibleviews', $allFlexibleviewss);
         $this->inject($this->subject, 'view', $view);
 
         $this->subject->listAction();
