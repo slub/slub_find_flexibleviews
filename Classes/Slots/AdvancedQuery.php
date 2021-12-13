@@ -69,16 +69,17 @@ class AdvancedQuery
      * @param Query &$query
      * @param array $arguments request arguments
      */
-    public function build(&$query, $arguments)
+    public function build(&$query, $argumentsIndex, $argumentsDetail = [])
     {
-        $flexibleViews = $arguments['flexibleviews'] ?? null;
 
-        if (MathUtility::canBeInterpretedAsInteger($flexibleViews)) {
-            $flexibleViewUid = MathUtility::forceIntegerInRange((int) $flexibleViews, 1);
+        $flexibleViews = empty($argumentsIndex['flexibleviews']) ? $argumentsDetail['flexibleviews'] : $argumentsIndex['flexibleviews'];
+
+        if ( !empty( $flexibleViews ) && MathUtility::canBeInterpretedAsInteger( $flexibleViews ) ) {
+            $flexibleViewUid = MathUtility::forceIntegerInRange( (int) $flexibleViews, 1 );
 
             $currentView = $this->flexibleviewsRepository->findByUid($flexibleViewUid);
 
-            if ($currentView === null) {
+            if ( $currentView === null ) {
                 return;
             }
 
